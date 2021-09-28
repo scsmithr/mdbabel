@@ -8,11 +8,15 @@ by [Org Babel](https://orgmode.org/worg/org-contrib/babel/).
 First clone the repo, then use cargo to install.
 
 <!-- mdbabel :name cargo-install -->
-```sh
+```shell
 cargo install --path .
 ```
 
 ## Usage
+
+```shell
+mdbabel <path to markdown file>
+```
 
 `mdbabel` executes code blocks that have the following properites:
 - Has a special comment immediately preceding the code block in the form of
@@ -27,7 +31,7 @@ View the raw version of this readme to see an example usage.
 Run tests with cargo.
 
 <!-- mdbabel :name cargo-test -->
-```sh
+```shell
 cargo test
 ```
 
