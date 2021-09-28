@@ -155,8 +155,8 @@ fn parse_comment_from_line(line: &str) -> Option<&str> {
     let beg = line.find("<!--");
     let end = line.find("-->");
     match (beg, end) {
-        (Some(beg_idx), Some(end_idx)) => {
-            let content = &line[(beg_idx + 4)..(end_idx)].trim();
+        (Some(0), Some(end_idx)) => {
+            let content = &line[4..(end_idx)].trim();
             Some(content)
         }
         _ => None,
@@ -190,7 +190,7 @@ mod tests {
         let tests = vec![
             // Input, expected output.
             ("<!-- hello world -->", Some("hello world")),
-            ("abc <!-- hello world -->", Some("hello world")),
+            ("abc <!-- hello world -->", None),
             ("<!-- hello world --> dfg", Some("hello world")),
             ("<!---->", Some("")),
             ("# hello world", None),
